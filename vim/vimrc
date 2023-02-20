@@ -1,0 +1,74 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Personal bind key
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let mapleader = ','
+
+noremap ; :
+noremap 0 ^
+
+nmap <silent> <leader>v :e ~/.vimrc<cr>
+nmap <silent> <leader>s :sourc ~/.vimrc<cr>
+nmap <silent> <leader>/ :nohlsearch<cr>
+
+noremap <C-J> <C-W>j
+noremap <C-K> <C-W>k
+noremap <C-L> <C-W>l
+noremap <C-H> <C-W>h
+noremap <S-H> gT
+noremap <S-L> gt
+noremap j gj
+noremap Y y$
+
+cmap w!! w !sudo tee % >/dev/null
+
+inoremap jk <Esc>
+inoremap <C-@> <C-X><C-O>
+
+set shell=bash
+set showmode
+set showcmd
+set number
+set showtabline=2
+set autochdir
+set smartindent
+set tabstop=4
+set expandtab
+set shiftwidth=4
+
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+
+syntax enable
+set background=dark
+colorscheme solarized
+let g:solarized_termcolors=256
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" git tool
+Plugin 'tpope/vim-fugitive'
+
+" git side status
+Plugin 'airblade/vim-gitgutter'
+
+" surround
+Plugin 'tpope/vim-surround'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
